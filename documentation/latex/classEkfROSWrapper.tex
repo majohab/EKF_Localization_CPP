@@ -2,7 +2,7 @@
 \label{classEkfROSWrapper}\index{EkfROSWrapper@{EkfROSWrapper}}
 
 
-ROS wrapper for Ekf Class for e\+Sleek23 localization.  
+ROS wrapper for \mbox{\hyperlink{classEkf}{Ekf}} Class for e\+Sleek23 localization.  
 
 
 
@@ -11,35 +11,44 @@ ROS wrapper for Ekf Class for e\+Sleek23 localization.
 
 
 
-Inheritance diagram for Ekf\+ROSWrapper\+:\nopagebreak
+Inheritance diagram for Ekf\+ROSWrapper\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=292pt]{classEkfROSWrapper__inherit__graph}
+\includegraphics[width=208pt]{classEkfROSWrapper__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Ekf\+ROSWrapper\+:\nopagebreak
+Collaboration diagram for Ekf\+ROSWrapper\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=292pt]{classEkfROSWrapper__coll__graph}
+\includegraphics[width=208pt]{classEkfROSWrapper__coll__graph}
 \end{center}
 \end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEkfROSWrapper_1_1Vector3dHash}{Vector3d\+Hash}}
+\begin{DoxyCompactList}\small\item\em Hash function to use Eigen\+::\+Vector3d as hash in a unordered map. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classEkfROSWrapper_af3ba9a2abadedde769dcfe652672b227}{Ekf\+ROSWrapper}} ()
-\begin{DoxyCompactList}\small\item\em Construct a new Ekf ROS Wrapper object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEkf}{Ekf}} ROS Wrapper object. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEkfROSWrapper_aff89dff83e3cea13052b7c971c795896}\label{classEkfROSWrapper_aff89dff83e3cea13052b7c971c795896}} 
 virtual \mbox{\hyperlink{classEkfROSWrapper_aff89dff83e3cea13052b7c971c795896}{$\sim$\+Ekf\+ROSWrapper}} ()
-\begin{DoxyCompactList}\small\item\em Destroy the Ekf R O S Wrapper object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classEkf}{Ekf}} R O S Wrapper object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkfROSWrapper_aa4f950ae08ab9fcdd677029ed38aa774}{parse\+\_\+map\+\_\+csv}} (std\+::string path)
-\begin{DoxyCompactList}\small\item\em Parses a map file into a std\+::vector of Eigen\+::\+Vector3d vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkfROSWrapper_a7c3dfcf3e977ee88858a8fb7e9eb699d}{parse\+\_\+map\+\_\+csv}} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em Parses a map file into a std\+::vector of Eigen\+::\+Vector3d vectors. \end{DoxyCompactList}\item 
+static std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkfROSWrapper_aed845a946ca13bd7b8b7f8abd88dd0af}{adjust\+\_\+track\+\_\+width}} (std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkf_a77e12295f0bcc546c099a408ba6eb420}{map}}, std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkfROSWrapper_a57f6a1322c7684b9b6f1bed1ec284731}{tracked\+\_\+landmarks}}, Eigen\+::\+Vector3d state\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Adjusts the track width in case of the acceleration mission. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -50,10 +59,24 @@ void \mbox{\hyperlink{classEkfROSWrapper_a805e607f961c80ab943137566ad4755d}{stat
 void \mbox{\hyperlink{classEkfROSWrapper_ac0b047d3a1d61dfd8dc9e8e3876a9d2a}{mission\+\_\+selection\+\_\+callback}} (const dv\+\_\+msgs\+::msg\+::\+Mission\+Selection \&\+\_\+msg)
 \begin{DoxyCompactList}\small\item\em Callback triggers the load of a map. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classEkfROSWrapper_af14e7d7391df7ef0691f3c772f1668fc}{go\+\_\+signal\+\_\+callback}} (const std\+\_\+msgs\+::msg\+::\+Bool \&\+\_\+msg)
-\begin{DoxyCompactList}\small\item\em Callback triggers the initialization routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Callback triggers the initialization routine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEkfROSWrapper_a0a518395de2d767a2cbd2b6cb291dfc4}{track\+\_\+landmarks}} (std\+::vector$<$ Eigen\+::\+Vector3d $>$ observations)
+\begin{DoxyCompactList}\small\item\em tracks landmarks and generates mean \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classEkfROSWrapper_a57f6a1322c7684b9b6f1bed1ec284731}\label{classEkfROSWrapper_a57f6a1322c7684b9b6f1bed1ec284731}} 
+std\+::unordered\+\_\+map$<$ Eigen\+::\+Vector3d, Eigen\+::\+Vector3d, \mbox{\hyperlink{structEkfROSWrapper_1_1Vector3dHash}{Vector3d\+Hash}} $>$ \mbox{\hyperlink{classEkfROSWrapper_a57f6a1322c7684b9b6f1bed1ec284731}{tracked\+\_\+landmarks}}
+\begin{DoxyCompactList}\small\item\em key value store for track landmarks function \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkfROSWrapper_a040f933946f26f86b687037c0c9c0a01}\label{classEkfROSWrapper_a040f933946f26f86b687037c0c9c0a01}} 
+bool \mbox{\hyperlink{classEkfROSWrapper_a040f933946f26f86b687037c0c9c0a01}{go\+\_\+signal\+\_\+flag}} = false
+\begin{DoxyCompactList}\small\item\em flag set if go signal occured \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkfROSWrapper_af53f86a81eae25f1a5b5b6b7a88120af}\label{classEkfROSWrapper_af53f86a81eae25f1a5b5b6b7a88120af}} 
+int \mbox{\hyperlink{classEkfROSWrapper_af53f86a81eae25f1a5b5b6b7a88120af}{mission}} = -\/1
+\begin{DoxyCompactList}\small\item\em currently selected mission \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkfROSWrapper_a397dd8ac8af7c861831d5ef999a2f74a}\label{classEkfROSWrapper_a397dd8ac8af7c861831d5ef999a2f74a}} 
+rclcpp\+::\+Time \mbox{\hyperlink{classEkfROSWrapper_a397dd8ac8af7c861831d5ef999a2f74a}{last\+\_\+state\+\_\+estimation\+\_\+timestamp}} \{0\}
+\begin{DoxyCompactList}\small\item\em timestamp of last se message \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classEkfROSWrapper_a7dcdb0f5609018cfd3f2e3fb671088cf}\label{classEkfROSWrapper_a7dcdb0f5609018cfd3f2e3fb671088cf}} 
 rclcpp\+::\+Subscription$<$ dv\+\_\+msgs\+::msg\+::\+Cone\+Array\+Stamped $>$\+::Shared\+Ptr \mbox{\hyperlink{classEkfROSWrapper_a7dcdb0f5609018cfd3f2e3fb671088cf}{camera\+\_\+sub\+\_\+}}
 \begin{DoxyCompactList}\small\item\em subscriber \end{DoxyCompactList}\item 
@@ -75,10 +98,11 @@ rclcpp\+::\+Publisher$<$ dv\+\_\+msgs\+::msg\+::\+State\+Estimation $>$\+::Share
 \mbox{\Hypertarget{classEkfROSWrapper_ad13ad47310f75f275b294c8ec2afa96d}\label{classEkfROSWrapper_ad13ad47310f75f275b294c8ec2afa96d}} 
 rclcpp\+::\+Publisher$<$ dv\+\_\+msgs\+::msg\+::\+Cone\+Array\+Stamped $>$\+::Shared\+Ptr \mbox{\hyperlink{classEkfROSWrapper_ad13ad47310f75f275b294c8ec2afa96d}{cone\+\_\+array\+\_\+pub\+\_\+}}
 \begin{DoxyCompactList}\small\item\em publisher \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
-ROS wrapper for Ekf Class for e\+Sleek23 localization. 
+ROS wrapper for \mbox{\hyperlink{classEkf}{Ekf}} Class for e\+Sleek23 localization. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classEkfROSWrapper_af3ba9a2abadedde769dcfe652672b227}\label{classEkfROSWrapper_af3ba9a2abadedde769dcfe652672b227}} 
@@ -89,7 +113,7 @@ ROS wrapper for Ekf Class for e\+Sleek23 localization.
 
 
 
-Construct a new Ekf ROS Wrapper object. 
+Construct a new \mbox{\hyperlink{classEkf}{Ekf}} ROS Wrapper object. 
 
 \hypertarget{ekf_localization.cpp_autotoc_md1}{}\doxyparagraph{QoS}\label{ekf_localization.cpp_autotoc_md1}
 The following code is the correct way to defining qos profiles. But it is incompatible with the python qos profiles. So we need the currently implemented versions of the profiles. \begin{DoxyRefDesc}{Todo}
@@ -107,6 +131,26 @@ The following code is the correct way to defining qos profiles. But it is incomp
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEkfROSWrapper_aed845a946ca13bd7b8b7f8abd88dd0af}\label{classEkfROSWrapper_aed845a946ca13bd7b8b7f8abd88dd0af}} 
+\index{EkfROSWrapper@{EkfROSWrapper}!adjust\_track\_width@{adjust\_track\_width}}
+\index{adjust\_track\_width@{adjust\_track\_width}!EkfROSWrapper@{EkfROSWrapper}}
+\doxysubsubsection{\texorpdfstring{adjust\_track\_width()}{adjust\_track\_width()}}
+{\footnotesize\ttfamily std\+::vector$<$ Eigen\+::\+Vector3d $>$ Ekf\+ROSWrapper\+::adjust\+\_\+track\+\_\+width (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Eigen\+::\+Vector3d $>$}]{map,  }\item[{std\+::vector$<$ Eigen\+::\+Vector3d $>$}]{tracked\+\_\+landmarks,  }\item[{Eigen\+::\+Vector3d}]{state\+\_\+vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Adjusts the track width in case of the acceleration mission. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & map with landmarks in coordinate representation \\
+\hline
+{\em tracked\+\_\+landmarks} & vector of tracked landmarks with the following form \mbox{[}x, y, count\mbox{]} (count meaning the amount of observations). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Eigen\+::\+Vector3d$>$ 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classEkfROSWrapper_af14e7d7391df7ef0691f3c772f1668fc}\label{classEkfROSWrapper_af14e7d7391df7ef0691f3c772f1668fc}} 
 \index{EkfROSWrapper@{EkfROSWrapper}!go\_signal\_callback@{go\_signal\_callback}}
 \index{go\_signal\_callback@{go\_signal\_callback}!EkfROSWrapper@{EkfROSWrapper}}
@@ -152,11 +196,11 @@ Callback triggers the load of a map.
 {\em \+\_\+msg} & Mission\+Selection \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classEkfROSWrapper_aa4f950ae08ab9fcdd677029ed38aa774}\label{classEkfROSWrapper_aa4f950ae08ab9fcdd677029ed38aa774}} 
+\mbox{\Hypertarget{classEkfROSWrapper_a7c3dfcf3e977ee88858a8fb7e9eb699d}\label{classEkfROSWrapper_a7c3dfcf3e977ee88858a8fb7e9eb699d}} 
 \index{EkfROSWrapper@{EkfROSWrapper}!parse\_map\_csv@{parse\_map\_csv}}
 \index{parse\_map\_csv@{parse\_map\_csv}!EkfROSWrapper@{EkfROSWrapper}}
 \doxysubsubsection{\texorpdfstring{parse\_map\_csv()}{parse\_map\_csv()}}
-{\footnotesize\ttfamily static std\+::vector$<$Eigen\+::\+Vector3d$>$ Ekf\+ROSWrapper\+::parse\+\_\+map\+\_\+csv (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily std\+::vector$<$ Eigen\+::\+Vector3d $>$ Ekf\+ROSWrapper\+::parse\+\_\+map\+\_\+csv (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -194,6 +238,23 @@ Callback triggers motion update.
 
 \begin{DoxyParams}{Parameters}
 {\em \+\_\+msg} & State\+Estimation message containing odometry information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEkfROSWrapper_a0a518395de2d767a2cbd2b6cb291dfc4}\label{classEkfROSWrapper_a0a518395de2d767a2cbd2b6cb291dfc4}} 
+\index{EkfROSWrapper@{EkfROSWrapper}!track\_landmarks@{track\_landmarks}}
+\index{track\_landmarks@{track\_landmarks}!EkfROSWrapper@{EkfROSWrapper}}
+\doxysubsubsection{\texorpdfstring{track\_landmarks()}{track\_landmarks()}}
+{\footnotesize\ttfamily void Ekf\+ROSWrapper\+::track\+\_\+landmarks (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Eigen\+::\+Vector3d $>$}]{observations }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+tracks landmarks and generates mean 
+
+the landmarks in tracked\+\_\+landmarks are of the format \mbox{[}x, y, count\mbox{]} with count meaning how often they were observed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em observations} & observations in coordinate representation \\
 \hline
 \end{DoxyParams}
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init_5fflag_78',['init_flag',['../classekf__localization_1_1Ekf.html#ab99d26b7d01fe563648e795f455643ff',1,'ekf_localization::Ekf']]]
+  ['init_5fflag_98',['init_flag',['../classEkf.html#a2a6859f6c39cd516708fa662d7025f10',1,'Ekf']]]
 ];

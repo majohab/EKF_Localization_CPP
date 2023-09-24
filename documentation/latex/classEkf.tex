@@ -1,0 +1,581 @@
+\hypertarget{classEkf}{}\doxysection{Ekf Class Reference}
+\label{classEkf}\index{Ekf@{Ekf}}
+
+
+This class implements the EKF Localization with Unknown Correspondences by thrun et al.  
+
+
+
+
+{\ttfamily \#include $<$ekf.\+hpp$>$}
+
+
+
+Inheritance diagram for Ekf\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classEkf__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEkf_a7359b0eae6fa3c0da739127d979e85f1}\label{classEkf_a7359b0eae6fa3c0da739127d979e85f1}} 
+\mbox{\hyperlink{classEkf_a7359b0eae6fa3c0da739127d979e85f1}{Ekf}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEkf}{Ekf}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEkf_a5b5acc9ca6b63464f08c4cfbc65dac3e}{Ekf}} (Eigen\+::\+Vector3d init\+\_\+sigma, Eigen\+::\+Vector4d \mbox{\hyperlink{classEkf_acd65f580dd1a15d381efb846b8eeed9b}{alpha}}, std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkf_a77e12295f0bcc546c099a408ba6eb420}{map}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEkf}{Ekf}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkf_a207e53a7d6264fbde19e4f44665fe555}\label{classEkf_a207e53a7d6264fbde19e4f44665fe555}} 
+virtual \mbox{\hyperlink{classEkf_a207e53a7d6264fbde19e4f44665fe555}{$\sim$\+Ekf}} ()
+\begin{DoxyCompactList}\small\item\em Destruct the \mbox{\hyperlink{classEkf}{Ekf}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEkf_abc547652e360e38391b9f94a8ab1f34b}{motion\+\_\+update}} (Eigen\+::\+Vector3d control)
+\begin{DoxyCompactList}\small\item\em Carries out the motion update or prediction step. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEkf_ac45eb33b110b568adca144e554149749}{correction\+\_\+step}} (std\+::vector$<$ Eigen\+::\+Vector3d $>$ observations)
+\begin{DoxyCompactList}\small\item\em Carries out the correction step. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEkf_a2c307d4a9384f2c630b21dd9aa3059eb}{set\+\_\+sigma}} (Eigen\+::\+Vector3d \mbox{\hyperlink{classEkf_aa84306cb641f6ad9a4741af5d8c72377}{sigma}})
+\begin{DoxyCompactList}\small\item\em Set the sigma object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEkf_a2238dd3274e3f52681c1ba39af12673c}{set\+\_\+alpha}} (Eigen\+::\+Vector4d \mbox{\hyperlink{classEkf_acd65f580dd1a15d381efb846b8eeed9b}{alpha}})
+\begin{DoxyCompactList}\small\item\em Set the alpha object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEkf_a95615250c723fb6434747373235929f8}{set\+\_\+map}} (std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkf_a77e12295f0bcc546c099a408ba6eb420}{map}})
+\begin{DoxyCompactList}\small\item\em Set the map object. \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkf_a8552558835173e05597c4f0f50db5355}{get\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em Get the map object. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classEkf_a72e522bf6526408aee34a5676cfbf173}{get\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Get the state object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEkf_ab906960e2ad5e1a49c1fcd7cd85e1029}{set\+\_\+state}} (Eigen\+::\+Vector3d state\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Set the state object. \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkf_abc0c6e77dcb4cf41252893425b2a98bf}{get\+\_\+observable\+\_\+landmarks}} ()
+\begin{DoxyCompactList}\small\item\em Get the observable landmarks at the current position in the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::tuple$<$ Eigen\+::\+Vector3d, Eigen\+::\+Matrix3d, Eigen\+::\+Matrix3d, double $>$ \mbox{\hyperlink{classEkf_abe3b666fe435503c8f75808a7a18f735}{data\+\_\+association}} (Eigen\+::\+Vector3d observation)
+\begin{DoxyCompactList}\small\item\em Calculates the correspondence j between the landmark and the observation via a maximum likelihood estimation. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classEkf_ae79da0cddc92c8b196da88d13f12afb6}{calculate\+\_\+z\+\_\+hat}} (Eigen\+::\+Vector3d landmark)
+\begin{DoxyCompactList}\small\item\em Converts the landmark from coordinate representation to a range bearing landmark. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classEkf_acf6cfcfa2f3922a9292d73f4518c7f6f}{motion\+\_\+model}} (Eigen\+::\+Vector3d control)
+\begin{DoxyCompactList}\small\item\em Updates the state vector according to the control. ~\newline
+ Formula 6 in Table 7.\+3 probabalistic robotics (thrun et al.). \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classEkf_ab7f7f48b565040740f3ebfd52a94da75}{calculate\+\_\+G}} (Eigen\+::\+Vector3d control)
+\begin{DoxyCompactList}\small\item\em Calculate the jacobian G\+\_\+t. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix$<$ double, 3, 2 $>$ \mbox{\hyperlink{classEkf_a5eb457c4eed69e54251eb48a0c899a51}{calculate\+\_\+V}} (Eigen\+::\+Vector3d control)
+\begin{DoxyCompactList}\small\item\em Calculate the jacobian V\+\_\+t. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix2d \mbox{\hyperlink{classEkf_a3e55cb077c433dc5b1b1494d56d59e64}{calculate\+\_\+M}} (float v, float omega)
+\begin{DoxyCompactList}\small\item\em Calculate the covariance matrix M\+\_\+t of the control vector. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classEkf_ad51ed075bf5d7df1b12347a6d9b98b67}{calculate\+\_\+sigma}} (Eigen\+::\+Matrix3d G, Eigen\+::\+Matrix$<$ double, 3, 2 $>$ V, Eigen\+::\+Matrix2d M)
+\begin{DoxyCompactList}\small\item\em Calculates the covariance matrix of the state vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classEkf_aa6cc856a78ec774e7831dc7ff005ee47}{calculate\+\_\+q}} (Eigen\+::\+Vector3d landmark)
+\begin{DoxyCompactList}\small\item\em Calculates the squared euclidean distance between landmark vector and state vector. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classEkf_afa88dacceddbe267fbb75aa9c3223fbb}{calculate\+\_\+H}} (Eigen\+::\+Vector3d landmark)
+\begin{DoxyCompactList}\small\item\em Calculates the jacobian H for the landmark. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classEkf_aeb61f1dc93f04657347de25e5432b108}{calculate\+\_\+S}} (Eigen\+::\+Matrix3d H)
+\begin{DoxyCompactList}\small\item\em Calculates S (no explanation in probabalistic robotics -\/-\/$>$ black magic) \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classEkf_abe0282f2cad5e3287cbcb29c822f9dda}{calculate\+\_\+K}} (Eigen\+::\+Matrix3d H, Eigen\+::\+Matrix3d S)
+\begin{DoxyCompactList}\small\item\em Calculates Kalman gain k. \end{DoxyCompactList}\item 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classEkf_a646cf05750c9c125ccf8d4626c4a4057}{correct\+\_\+state}} (Eigen\+::\+Matrix3d K, Eigen\+::\+Vector3d z, Eigen\+::\+Vector3d z\+\_\+hat)
+\begin{DoxyCompactList}\small\item\em Corrects the state based on the observation and landmark. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classEkf_a53d87a6eed7b9c31218a7e898a32b560}{calculate\+\_\+sigma}} (Eigen\+::\+Matrix3d K, Eigen\+::\+Matrix3d H)
+\begin{DoxyCompactList}\small\item\em Calculates the updated state covariance matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEkf_af89a7c98e1972c908908f15337b4b320}{outlier\+\_\+rejection}} (double likelihood)
+\begin{DoxyCompactList}\small\item\em Outlier rejection based on likelihood threshhold test. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEkf_a2a6859f6c39cd516708fa662d7025f10}\label{classEkf_a2a6859f6c39cd516708fa662d7025f10}} 
+bool \mbox{\hyperlink{classEkf_a2a6859f6c39cd516708fa662d7025f10}{init\+\_\+flag}}
+\begin{DoxyCompactList}\small\item\em Initialization flag for when using the default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkf_a9c3eeef03c0aaec8e340a108e40d4a38}\label{classEkf_a9c3eeef03c0aaec8e340a108e40d4a38}} 
+const float \mbox{\hyperlink{classEkf_a9c3eeef03c0aaec8e340a108e40d4a38}{EPS}} = 1e-\/8
+\begin{DoxyCompactList}\small\item\em Threshhold for approximation of straight forward movement in \mbox{\hyperlink{classEkf_acf6cfcfa2f3922a9292d73f4518c7f6f}{motion\+\_\+model()}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkf_aef78d87e9f53b4ea2eaf728e914dd15f}\label{classEkf_aef78d87e9f53b4ea2eaf728e914dd15f}} 
+const float \mbox{\hyperlink{classEkf_aef78d87e9f53b4ea2eaf728e914dd15f}{MAPRANGE}} = 20
+\begin{DoxyCompactList}\small\item\em Threshhold for the width the robot can see. Used in \mbox{\hyperlink{classEkf_abc0c6e77dcb4cf41252893425b2a98bf}{get\+\_\+observable\+\_\+landmarks()}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkf_a950712e3b9e06041849bcf0ef67b1002}\label{classEkf_a950712e3b9e06041849bcf0ef67b1002}} 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classEkf_a950712e3b9e06041849bcf0ef67b1002}{Q\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Covariance of additional noise of the \mbox{\hyperlink{classEkf_abc547652e360e38391b9f94a8ab1f34b}{motion\+\_\+update()}} through the \mbox{\hyperlink{classEkf_acf6cfcfa2f3922a9292d73f4518c7f6f}{motion\+\_\+model()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkf_a8414a49a7e95569542a3e0bdf50d5e1c}\label{classEkf_a8414a49a7e95569542a3e0bdf50d5e1c}} 
+Eigen\+::\+Vector3d \mbox{\hyperlink{classEkf_a8414a49a7e95569542a3e0bdf50d5e1c}{mu}}
+\begin{DoxyCompactList}\small\item\em Vehicle state of the last ekf iteration. Resulting either from the \mbox{\hyperlink{classEkf_abc547652e360e38391b9f94a8ab1f34b}{motion\+\_\+update()}} or the \mbox{\hyperlink{classEkf_ac45eb33b110b568adca144e554149749}{correction\+\_\+step()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkf_aa84306cb641f6ad9a4741af5d8c72377}\label{classEkf_aa84306cb641f6ad9a4741af5d8c72377}} 
+Eigen\+::\+Matrix3d \mbox{\hyperlink{classEkf_aa84306cb641f6ad9a4741af5d8c72377}{sigma}}
+\begin{DoxyCompactList}\small\item\em Covariance of the state vector mu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkf_acd65f580dd1a15d381efb846b8eeed9b}\label{classEkf_acd65f580dd1a15d381efb846b8eeed9b}} 
+Eigen\+::\+Vector4d \mbox{\hyperlink{classEkf_acd65f580dd1a15d381efb846b8eeed9b}{alpha}}
+\begin{DoxyCompactList}\small\item\em Noise of the control space used in calculate\+\_\+\+Mt() to calculate the covariance matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEkf_a77e12295f0bcc546c099a408ba6eb420}\label{classEkf_a77e12295f0bcc546c099a408ba6eb420}} 
+std\+::vector$<$ Eigen\+::\+Vector3d $>$ \mbox{\hyperlink{classEkf_a77e12295f0bcc546c099a408ba6eb420}{map}}
+\begin{DoxyCompactList}\small\item\em Map represented as a vector of feature vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implements the EKF Localization with Unknown Correspondences by thrun et al. 
+
+The following terminology is used in the code\+:
+\begin{DoxyItemize}
+\item The state vector mu is defined as a 3D vector with the x,y and theta (heading).
+\item The control vector is defined as a 3D vector with v, omega and delta t. v is the translational velocity, omega the rotational velocity and t the time delta between the last and current step.
+\item The landmark vector is used in coordinate (\mbox{[}x, y, s\mbox{]}) and range bearing representation (\mbox{[}r, phi, s\mbox{]}). 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEkf_a5b5acc9ca6b63464f08c4cfbc65dac3e}\label{classEkf_a5b5acc9ca6b63464f08c4cfbc65dac3e}} 
+\index{Ekf@{Ekf}!Ekf@{Ekf}}
+\index{Ekf@{Ekf}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{Ekf()}{Ekf()}}
+{\footnotesize\ttfamily Ekf\+::\+Ekf (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{init\+\_\+sigma,  }\item[{Eigen\+::\+Vector4d}]{alpha,  }\item[{std\+::vector$<$ Eigen\+::\+Vector3d $>$}]{map }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classEkf}{Ekf}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+\_\+sigma} & initial variance for x, y, and theta \\
+\hline
+{\em alpha} & noise of control space v\+\_\+x, omega\+\_\+x, v\+\_\+y, omega\+\_\+y \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEkf_ab7f7f48b565040740f3ebfd52a94da75}\label{classEkf_ab7f7f48b565040740f3ebfd52a94da75}} 
+\index{Ekf@{Ekf}!calculate\_G@{calculate\_G}}
+\index{calculate\_G@{calculate\_G}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_G()}{calculate\_G()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Ekf\+::calculate\+\_\+G (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{control }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculate the jacobian G\+\_\+t. 
+
+Formula 3 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em control} & control vector at time t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix3d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_afa88dacceddbe267fbb75aa9c3223fbb}\label{classEkf_afa88dacceddbe267fbb75aa9c3223fbb}} 
+\index{Ekf@{Ekf}!calculate\_H@{calculate\_H}}
+\index{calculate\_H@{calculate\_H}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_H()}{calculate\_H()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Ekf\+::calculate\+\_\+H (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{landmark }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates the jacobian H for the landmark. 
+
+Formula 13 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em landmark} & landmark vector in coordinate representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix3d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_abe0282f2cad5e3287cbcb29c822f9dda}\label{classEkf_abe0282f2cad5e3287cbcb29c822f9dda}} 
+\index{Ekf@{Ekf}!calculate\_K@{calculate\_K}}
+\index{calculate\_K@{calculate\_K}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_K()}{calculate\_K()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Ekf\+::calculate\+\_\+K (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix3d}]{H,  }\item[{Eigen\+::\+Matrix3d}]{S }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates Kalman gain k. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em H} & jacobian for the landmark k \\
+\hline
+{\em S} & ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix3d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_a3e55cb077c433dc5b1b1494d56d59e64}\label{classEkf_a3e55cb077c433dc5b1b1494d56d59e64}} 
+\index{Ekf@{Ekf}!calculate\_M@{calculate\_M}}
+\index{calculate\_M@{calculate\_M}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_M()}{calculate\_M()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix2d Ekf\+::calculate\+\_\+M (\begin{DoxyParamCaption}\item[{float}]{v,  }\item[{float}]{omega }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculate the covariance matrix M\+\_\+t of the control vector. 
+
+Formula 5 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em control} & control vector at time t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix2d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_aa6cc856a78ec774e7831dc7ff005ee47}\label{classEkf_aa6cc856a78ec774e7831dc7ff005ee47}} 
+\index{Ekf@{Ekf}!calculate\_q@{calculate\_q}}
+\index{calculate\_q@{calculate\_q}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_q()}{calculate\_q()}}
+{\footnotesize\ttfamily double Ekf\+::calculate\+\_\+q (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{landmark }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates the squared euclidean distance between landmark vector and state vector. 
+
+Formula 11 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+\begin{DoxyNote}{Note}
+untested because only matrix operations are used 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em landmark} & landmark vector in coordinate representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double squared euclidean distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_aeb61f1dc93f04657347de25e5432b108}\label{classEkf_aeb61f1dc93f04657347de25e5432b108}} 
+\index{Ekf@{Ekf}!calculate\_S@{calculate\_S}}
+\index{calculate\_S@{calculate\_S}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_S()}{calculate\_S()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Ekf\+::calculate\+\_\+S (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix3d}]{H }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates S (no explanation in probabalistic robotics -\/-\/$>$ black magic) 
+
+Formula 14 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em H} & jacobian for the landmark \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix3d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_ad51ed075bf5d7df1b12347a6d9b98b67}\label{classEkf_ad51ed075bf5d7df1b12347a6d9b98b67}} 
+\index{Ekf@{Ekf}!calculate\_sigma@{calculate\_sigma}}
+\index{calculate\_sigma@{calculate\_sigma}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_sigma()}{calculate\_sigma()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Ekf\+::calculate\+\_\+sigma (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix3d}]{G,  }\item[{Eigen\+::\+Matrix$<$ double, 3, 2 $>$}]{V,  }\item[{Eigen\+::\+Matrix2d}]{M }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates the covariance matrix of the state vector. 
+
+Formula 7 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & jacobian matrix \\
+\hline
+{\em V} & jacobian matrix \\
+\hline
+{\em M} & covariance matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix3d updated covariance of the state vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_a53d87a6eed7b9c31218a7e898a32b560}\label{classEkf_a53d87a6eed7b9c31218a7e898a32b560}} 
+\index{Ekf@{Ekf}!calculate\_sigma@{calculate\_sigma}}
+\index{calculate\_sigma@{calculate\_sigma}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_sigma()}{calculate\_sigma()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix3d Ekf\+::calculate\+\_\+sigma (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix3d}]{K,  }\item[{Eigen\+::\+Matrix3d}]{H }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates the updated state covariance matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em K} & Kalman gain \\
+\hline
+{\em H} & jacobian for the landmark k \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Matrix3d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_a5eb457c4eed69e54251eb48a0c899a51}\label{classEkf_a5eb457c4eed69e54251eb48a0c899a51}} 
+\index{Ekf@{Ekf}!calculate\_V@{calculate\_V}}
+\index{calculate\_V@{calculate\_V}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_V()}{calculate\_V()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix$<$ double, 3, 2 $>$ Ekf\+::calculate\+\_\+V (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{control }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculate the jacobian V\+\_\+t. 
+
+Formula 4 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em control} & control vector at time t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Eigen\+::\+Matrix$<$double, 3, 2$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_ae79da0cddc92c8b196da88d13f12afb6}\label{classEkf_ae79da0cddc92c8b196da88d13f12afb6}} 
+\index{Ekf@{Ekf}!calculate\_z\_hat@{calculate\_z\_hat}}
+\index{calculate\_z\_hat@{calculate\_z\_hat}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{calculate\_z\_hat()}{calculate\_z\_hat()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Ekf\+::calculate\+\_\+z\+\_\+hat (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{landmark }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Converts the landmark from coordinate representation to a range bearing landmark. 
+
+Formula 12 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em landmark} & landmark vector in coordinate representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Vector3d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_a646cf05750c9c125ccf8d4626c4a4057}\label{classEkf_a646cf05750c9c125ccf8d4626c4a4057}} 
+\index{Ekf@{Ekf}!correct\_state@{correct\_state}}
+\index{correct\_state@{correct\_state}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{correct\_state()}{correct\_state()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Ekf\+::correct\+\_\+state (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix3d}]{K,  }\item[{Eigen\+::\+Vector3d}]{z,  }\item[{Eigen\+::\+Vector3d}]{z\+\_\+hat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Corrects the state based on the observation and landmark. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em K} & Kalman gain \\
+\hline
+{\em z} & observation in range bearing representation \\
+\hline
+{\em z\+\_\+hat} & landmark k in range bearing representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Vector3d updated state vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_ac45eb33b110b568adca144e554149749}\label{classEkf_ac45eb33b110b568adca144e554149749}} 
+\index{Ekf@{Ekf}!correction\_step@{correction\_step}}
+\index{correction\_step@{correction\_step}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{correction\_step()}{correction\_step()}}
+{\footnotesize\ttfamily void Ekf\+::correction\+\_\+step (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Eigen\+::\+Vector3d $>$}]{observations }\end{DoxyParamCaption})}
+
+
+
+Carries out the correction step. 
+
+Includes Formula 21 in Table 7.\+2 probabalistic robotics (thrun et al.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em observations} & vector of observations in range bearing representations \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEkf_abe3b666fe435503c8f75808a7a18f735}\label{classEkf_abe3b666fe435503c8f75808a7a18f735}} 
+\index{Ekf@{Ekf}!data\_association@{data\_association}}
+\index{data\_association@{data\_association}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{data\_association()}{data\_association()}}
+{\footnotesize\ttfamily std\+::tuple$<$ Eigen\+::\+Vector3d, Eigen\+::\+Matrix3d, Eigen\+::\+Matrix3d, double $>$ Ekf\+::data\+\_\+association (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{observation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Calculates the correspondence j between the landmark and the observation via a maximum likelihood estimation. 
+
+The correspondence j assigns the most likely landmark k to the observation z.
+
+Line 10-\/16 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]currently the association is only based on the x, y position of the observation the signature S (Color) is not used. Has to be added in the future. \end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em observation} & observation vector z. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::tuple$<$\+Eigen\+::\+Vector3d, Eigen\+::\+Matrix3d$>$$>$ the assigned landmark k to the obserevation z, the corresponding H matrix, the corresponding S matrix and the likelihood. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_a8552558835173e05597c4f0f50db5355}\label{classEkf_a8552558835173e05597c4f0f50db5355}} 
+\index{Ekf@{Ekf}!get\_map@{get\_map}}
+\index{get\_map@{get\_map}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{get\_map()}{get\_map()}}
+{\footnotesize\ttfamily std\+::vector$<$ Eigen\+::\+Vector3d $>$ Ekf\+::get\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the map object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Eigen\+::\+Vector3d$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_abc0c6e77dcb4cf41252893425b2a98bf}\label{classEkf_abc0c6e77dcb4cf41252893425b2a98bf}} 
+\index{Ekf@{Ekf}!get\_observable\_landmarks@{get\_observable\_landmarks}}
+\index{get\_observable\_landmarks@{get\_observable\_landmarks}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{get\_observable\_landmarks()}{get\_observable\_landmarks()}}
+{\footnotesize\ttfamily std\+::vector$<$ Eigen\+::\+Vector3d $>$ Ekf\+::get\+\_\+observable\+\_\+landmarks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the observable landmarks at the current position in the map. 
+
+It is assumed that all landmarks that are at the time in front of the robot can be observed so all of them are send.
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Eigen\+::\+Vector3d$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_a72e522bf6526408aee34a5676cfbf173}\label{classEkf_a72e522bf6526408aee34a5676cfbf173}} 
+\index{Ekf@{Ekf}!get\_state@{get\_state}}
+\index{get\_state@{get\_state}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{get\_state()}{get\_state()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Ekf\+::get\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the state object. 
+
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Vector3d 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_acf6cfcfa2f3922a9292d73f4518c7f6f}\label{classEkf_acf6cfcfa2f3922a9292d73f4518c7f6f}} 
+\index{Ekf@{Ekf}!motion\_model@{motion\_model}}
+\index{motion\_model@{motion\_model}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{motion\_model()}{motion\_model()}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3d Ekf\+::motion\+\_\+model (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{control }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Updates the state vector according to the control. ~\newline
+ Formula 6 in Table 7.\+3 probabalistic robotics (thrun et al.). 
+
+The modtion model used is the velocity motion model explained in probabalistic robotics (thrun et al.) in Formula 5.\+13.
+
+
+\begin{DoxyParams}{Parameters}
+{\em control} & control vector at time t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eigen\+::\+Vector3d Updated state vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_abc547652e360e38391b9f94a8ab1f34b}\label{classEkf_abc547652e360e38391b9f94a8ab1f34b}} 
+\index{Ekf@{Ekf}!motion\_update@{motion\_update}}
+\index{motion\_update@{motion\_update}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{motion\_update()}{motion\_update()}}
+{\footnotesize\ttfamily void Ekf\+::motion\+\_\+update (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{control }\end{DoxyParamCaption})}
+
+
+
+Carries out the motion update or prediction step. 
+
+Includes Formula 4 in Table 7.\+3 probabalistic robotics (thrun et al.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em control} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEkf_af89a7c98e1972c908908f15337b4b320}\label{classEkf_af89a7c98e1972c908908f15337b4b320}} 
+\index{Ekf@{Ekf}!outlier\_rejection@{outlier\_rejection}}
+\index{outlier\_rejection@{outlier\_rejection}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{outlier\_rejection()}{outlier\_rejection()}}
+{\footnotesize\ttfamily bool Ekf\+::outlier\+\_\+rejection (\begin{DoxyParamCaption}\item[{double}]{likelihood }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Outlier rejection based on likelihood threshhold test. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em likelihood} & likelihood of the state correction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true the correction is implausible and should be rejected 
+
+false the correction is plausible and should be accepted 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEkf_a2238dd3274e3f52681c1ba39af12673c}\label{classEkf_a2238dd3274e3f52681c1ba39af12673c}} 
+\index{Ekf@{Ekf}!set\_alpha@{set\_alpha}}
+\index{set\_alpha@{set\_alpha}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{set\_alpha()}{set\_alpha()}}
+{\footnotesize\ttfamily void Ekf\+::set\+\_\+alpha (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector4d}]{alpha }\end{DoxyParamCaption})}
+
+
+
+Set the alpha object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alpha} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEkf_a95615250c723fb6434747373235929f8}\label{classEkf_a95615250c723fb6434747373235929f8}} 
+\index{Ekf@{Ekf}!set\_map@{set\_map}}
+\index{set\_map@{set\_map}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{set\_map()}{set\_map()}}
+{\footnotesize\ttfamily void Ekf\+::set\+\_\+map (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Eigen\+::\+Vector3d $>$}]{map }\end{DoxyParamCaption})}
+
+
+
+Set the map object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEkf_a2c307d4a9384f2c630b21dd9aa3059eb}\label{classEkf_a2c307d4a9384f2c630b21dd9aa3059eb}} 
+\index{Ekf@{Ekf}!set\_sigma@{set\_sigma}}
+\index{set\_sigma@{set\_sigma}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{set\_sigma()}{set\_sigma()}}
+{\footnotesize\ttfamily void Ekf\+::set\+\_\+sigma (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{sigma }\end{DoxyParamCaption})}
+
+
+
+Set the sigma object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sigma} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEkf_ab906960e2ad5e1a49c1fcd7cd85e1029}\label{classEkf_ab906960e2ad5e1a49c1fcd7cd85e1029}} 
+\index{Ekf@{Ekf}!set\_state@{set\_state}}
+\index{set\_state@{set\_state}!Ekf@{Ekf}}
+\doxysubsubsection{\texorpdfstring{set\_state()}{set\_state()}}
+{\footnotesize\ttfamily void Ekf\+::set\+\_\+state (\begin{DoxyParamCaption}\item[{Eigen\+::\+Vector3d}]{state\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Set the state object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+\_\+vector} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/ekf\+\_\+localization/ekf.\+hpp\item 
+src/ekf.\+cpp\end{DoxyCompactItemize}

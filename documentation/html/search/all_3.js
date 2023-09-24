@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ekf_15',['Ekf',['../classekf__localization_1_1Ekf.html#a77152c78bf95f5c99423619735da788d',1,'ekf_localization::Ekf::Ekf()'],['../classekf__localization_1_1Ekf.html#a415ee849ad2106b89a4ea74600bf636d',1,'ekf_localization::Ekf::Ekf(Eigen::Vector3d init_sigma, Eigen::Vector4d alpha, std::vector&lt; Eigen::Vector3d &gt; map)'],['../classekf__localization_1_1Ekf.html',1,'ekf_localization::Ekf']]],
-  ['ekflocalizationtest_16',['EkfLocalizationTest',['../classEkfLocalizationTest.html',1,'']]],
+  ['ekf_16',['Ekf',['../classEkf.html',1,'Ekf'],['../classEkf.html#a7359b0eae6fa3c0da739127d979e85f1',1,'Ekf::Ekf()'],['../classEkf.html#a5b5acc9ca6b63464f08c4cfbc65dac3e',1,'Ekf::Ekf(Eigen::Vector3d init_sigma, Eigen::Vector4d alpha, std::vector&lt; Eigen::Vector3d &gt; map)']]],
   ['ekfroswrapper_17',['EkfROSWrapper',['../classEkfROSWrapper.html',1,'EkfROSWrapper'],['../classEkfROSWrapper.html#af3ba9a2abadedde769dcfe652672b227',1,'EkfROSWrapper::EkfROSWrapper()']]],
-  ['eps_18',['eps',['../classekf__localization_1_1Ekf.html#a6c3f8fb7dc2f490d689c840820ec7158',1,'ekf_localization::Ekf']]]
+  ['ekftest_18',['EkfTest',['../classEkfTest.html',1,'']]],
+  ['eps_19',['EPS',['../classEkf.html#a9c3eeef03c0aaec8e340a108e40d4a38',1,'Ekf']]]
 ];

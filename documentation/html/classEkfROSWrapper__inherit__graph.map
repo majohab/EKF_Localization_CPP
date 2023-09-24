@@ -1,5 +1,5 @@
 <map id="EkfROSWrapper" name="EkfROSWrapper">
-<area shape="rect" id="node1" title="ROS wrapper for Ekf Class for eSleek23 localization." alt="" coords="70,80,195,107"/>
+<area shape="rect" id="node1" title="ROS wrapper for Ekf Class for eSleek23 localization." alt="" coords="42,80,167,107"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,108,32"/>
-<area shape="rect" id="node3" href="$classekf__localization_1_1Ekf.html" title="This class implements the EKF Localization with Unknown Correspondences by thrun et al." alt="" coords="133,5,287,32"/>
+<area shape="rect" id="node3" href="$classEkf.html" title="This class implements the EKF Localization with Unknown Correspondences by thrun et al." alt="" coords="133,5,175,32"/>
 </map>

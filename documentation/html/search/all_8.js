@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outlier_5frejection_30',['outlier_rejection',['../classekf__localization_1_1Ekf.html#a246810c4d5a0c10d598993a1527b25f8',1,'ekf_localization::Ekf']]]
+  ['outlier_5frejection_38',['outlier_rejection',['../classEkf.html#af89a7c98e1972c908908f15337b4b320',1,'Ekf']]]
 ];
