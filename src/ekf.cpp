@@ -197,12 +197,12 @@ Eigen::Matrix3d Ekf::calculate_sigma(Eigen::Matrix3d K, Eigen::Matrix3d H)
 
 bool Ekf::outlier_rejection(double likelihood)
 {
-    return true;
+    return false;
 }
 
-void Ekf::correction_step(std::vector<Eigen::Vector3d> observations)
+double Ekf::correction_step(std::vector<Eigen::Vector3d> observations)
 {
-    if(!this->init_flag) return; // Catch uninitialized case
+    if(!this->init_flag) return 0; // Catch uninitialized case
     std::vector<Eigen::Vector3d>::iterator iter = observations.begin();
     //save state and cov in case of outlier rejection
     Eigen::Vector3d pre_correction_state = this->mu;
@@ -210,11 +210,13 @@ void Ekf::correction_step(std::vector<Eigen::Vector3d> observations)
     // correction step
     std::vector<double> p_zit;
     Eigen::Matrix3d K;
-    for(iter; iter < this->map.end(); iter++)
+    Eigen::Vector3d z;
+    for(iter; iter < observations.end(); iter++)
     {
-        auto [z_hat, S, H, p_i] = data_association(*iter);
+        z = calculate_z_hat(*iter);
+        auto [z_hat, S, H, p_i] = data_association(z);
         K = calculate_K(H, S);
-        this->mu = correct_state(K, *iter, z_hat);
+        this->mu = correct_state(K, z, z_hat);
         this->sigma = calculate_sigma(K, H);
         p_zit.push_back(p_i);
     }
@@ -225,6 +227,7 @@ void Ekf::correction_step(std::vector<Eigen::Vector3d> observations)
         this->mu = pre_correction_state;
         this->sigma = pre_correction_covariance;
     }
+    return p_zt;
 }
 
 void Ekf::set_sigma(Eigen::Vector3d sigma)
@@ -278,4 +281,9 @@ std::vector<Eigen::Vector3d> Ekf::get_observable_landmarks()
         }
     }
     return observable_landmarks;
+}
+
+void Ekf::set_init_flag()
+{
+    this->init_flag = true;
 }

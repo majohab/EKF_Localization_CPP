@@ -19,7 +19,8 @@ void msgs_bridge::fromROS(Eigen::Vector3d &control, dv_msgs::msg::StateEstimatio
 {
     rclcpp::Time timestamp;
     msgs_bridge::fromROS(timestamp, _msg.header);
-    control << _msg.velocity_x, _msg.yaw_rate, (timestamp - last_se_timestamp).seconds();
+    rclcpp::Duration delta = timestamp - last_se_timestamp;
+    control << _msg.velocity_x, _msg.yaw_rate, delta.seconds();
 }
 
 void msgs_bridge::fromROS(std::vector<Eigen::Vector3d> &observations, dv_msgs::msg::ConeArrayStamped _msg)

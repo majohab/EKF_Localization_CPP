@@ -15,6 +15,7 @@
 #include "dv_msgs/msg/state_estimation.hpp"
 #include "dv_msgs/msg/cone_array_stamped.hpp"
 #include "dv_msgs/msg/mission_selection.hpp"
+#include "dv_msgs/msg/float32_stamped.hpp"
 
 /**
  * @brief ROS wrapper for Ekf Class for eSleek23 localization
@@ -77,7 +78,9 @@ class EkfROSWrapper : public rclcpp::Node, public Ekf
     };
     std::unordered_map<Eigen::Vector3d, Eigen::Vector3d, Vector3dHash> tracked_landmarks; ///< key value store for track landmarks function
     bool go_signal_flag = false; ///< flag set if go signal occured
+    bool tracking_active = true; ///< flag set if in tracking period
     int mission = -1; ///< currently selected mission
+    rclcpp::Time tracking_period_end{0}; ///< end timestamp of the 4 second tracking period after go 
     rclcpp::Time last_state_estimation_timestamp{0}; ///< timestamp of last se message 
     rclcpp::Subscription<dv_msgs::msg::ConeArrayStamped>::SharedPtr camera_sub_; ///< subscriber
     rclcpp::Subscription<dv_msgs::msg::ConeArrayStamped>::SharedPtr lidar_sub_; ///< subscriber
@@ -86,6 +89,7 @@ class EkfROSWrapper : public rclcpp::Node, public Ekf
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr go_signal_sub_; ///< subscriber
     rclcpp::Publisher<dv_msgs::msg::StateEstimation>::SharedPtr state_estimation_pub_;  ///< publisher
     rclcpp::Publisher<dv_msgs::msg::ConeArrayStamped>::SharedPtr cone_array_pub_;  ///< publisher
+    rclcpp::Publisher<dv_msgs::msg::Float32Stamped>::SharedPtr likelihood_pub_;  ///< publisher
     /**
      * @brief Callback triggers the correction step.
      * 

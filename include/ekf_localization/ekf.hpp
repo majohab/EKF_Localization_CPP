@@ -49,9 +49,9 @@ class Ekf
      * 
      * Includes Formula 21 in Table 7.2 probabalistic robotics (thrun et al.).
      * 
-     * @param observations vector of observations in range bearing representations
+     * @param observations vector of observations in coordinate representation
      */
-    void correction_step(std::vector<Eigen::Vector3d> observations);
+    double correction_step(std::vector<Eigen::Vector3d> observations);
         /**
      * @brief Set the sigma object
      * 
@@ -70,6 +70,11 @@ class Ekf
      * @param map 
      */
     void set_map(std::vector<Eigen::Vector3d> map);
+    /**
+     * @brief Set the init flag object
+     * 
+     */
+    void set_init_flag();
     /**
      * @brief Get the map object
      * 
